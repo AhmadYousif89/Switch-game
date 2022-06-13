@@ -72,14 +72,14 @@ const playerScore = () => {
     document.querySelector(`[p-${activePlayer}-Score]`).textContent = score[
       activePlayer - 1
     ] += currentScore;
-    if (score[activePlayer - 1] >= 10) {
+    if (score[activePlayer - 1] >= 100) {
       // player win the game
       document.querySelector(`[p-${activePlayer}]`).classList.add('winner');
       document.querySelector(
-        `[p-${activePlayer}-Score]`
+        `[p-${activePlayer}-Score]`,
       ).style.cssText = `font-size: 5rem`;
       document.querySelector(
-        `[p-${activePlayer}-Score]`
+        `[p-${activePlayer}-Score]`,
       ).textContent = `Winner 🏆`;
       newGameBtn.textContent = `🔄 New Game`;
       isGaming = false;
