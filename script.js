@@ -29,11 +29,14 @@ const p2Score = document.querySelector('[p-2-Score]');
 const p2CurrentScore = document.querySelector('[p-2-CurrentScore]');
 const diceImg = document.querySelector('[diceImg]');
 const diceBtn = document.querySelector('[diceBtn]');
-const holdScoreBtn = document.querySelector('[holdScoreBtn]');
+const holdBtn = document.querySelector('[holdBtn]');
 const newGameBtn = document.querySelector('[newGameBtn]');
 
 /* Global Variabls */
-let score, currentScore, isGaming, activePlayer;
+let score;
+let currentScore;
+let isGaming;
+let activePlayer;
 
 // Helper Functions
 const switchPlayer = () => {
@@ -77,18 +80,14 @@ const playerScore = () => {
       document.querySelector(`[p-${activePlayer}]`).classList.add('winner');
       document.querySelector(
         `[p-${activePlayer}-Score]`,
-      ).style.cssText = `font-size: 5rem`;
-      document.querySelector(
-        `[p-${activePlayer}-Score]`,
       ).textContent = `Winner 🏆`;
-      newGameBtn.textContent = `🔄 New Game`;
       isGaming = false;
     } else {
       switchPlayer();
     }
   }
 };
-holdScoreBtn.addEventListener('click', playerScore);
+holdBtn.addEventListener('click', playerScore);
 
 /* implement new game functionality */
 
@@ -106,5 +105,5 @@ const startNewGame = () => {
   p1.classList.remove('winner');
   p2.classList.remove('winner', 'active');
 };
-// startNewGame();
+startNewGame();
 newGameBtn.addEventListener('click', startNewGame);
